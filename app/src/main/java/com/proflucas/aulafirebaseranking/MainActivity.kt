@@ -1,5 +1,6 @@
 package com.proflucas.aulafirebaseranking
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -29,6 +30,7 @@ class MainActivity : ComponentActivity() {
 
     private var pontuacoesCarregadas = emptyList<PontuacaoComChave>()
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,8 +38,8 @@ class MainActivity : ComponentActivity() {
         val campoNome = findViewById<EditText>(R.id.campoNome)
         val textoPontuacao = findViewById<TextView>(R.id.textoPontuacao)
         val textoRanking = findViewById<TextView>(R.id.textoRanking)
-        val botaoAumentarPontos =
-            findViewById<Button>(R.id.botaoAumentarPontos)
+        val botaoAumentarPontos = findViewById<Button>(R.id.botaoAumentarPontos)
+        val botaoDiminuirPontos = findViewById<Button>(R.id.botaoDiminuirPontos)
         val botaoSalvar = findViewById<Button>(R.id.botaoSalvar)
 
         botaoAumentarPontos.setOnClickListener {
@@ -45,6 +47,13 @@ class MainActivity : ComponentActivity() {
             textoPontuacao.text = "Pontuação: $pontos"
         }
 
+        botaoDiminuirPontos.setOnClickListener {
+            if (pontos > 0) {
+                pontos--
+                textoPontuacao.text = "Pontuação: $pontos"
+            }
+
+        }
         botaoSalvar.setOnClickListener {
             val nome = campoNome.text.toString().trim()
 

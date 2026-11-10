@@ -30,6 +30,13 @@
         android:text="Aumentar pontuação" />
 
     <Button
+        android:id="@+id/botaoDiminuirPontos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Diminuir Pontuação" />
+
+    <Button
         android:id="@+id/botaoSalvar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
